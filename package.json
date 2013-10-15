@@ -1,0 +1,16 @@
+{
+    "name": "node-examples",
+    "description": "DNode examples for the Node.js lectures",
+    "version": "0.1.0",
+    "author": {
+        "email": "dmj@tid.es"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
+    },
+    "dependencies": {
+        "async": "*",
+	"express": "*"
+    },
+    "keywords": []
+}
