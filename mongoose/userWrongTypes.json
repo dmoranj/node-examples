@@ -1,0 +1,12 @@
+{
+    "login" : "bstinson",
+    "name" : "Barney",
+    "surname" : "Stinson",
+    "age": "Don't be rude!",
+    "blogs" : [
+        {
+            "title" : 34,
+            "text" : ["A", "B", "C"]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "login" : "tmosby",
+    "name" : "Ted",
+    "surname" : "Mosby",
+    "age" : 35,
+    "blogs" : [
+        {
+            "title" : "Architecture for dummies",
+            "text" : "Architecture is when you build houses"
+        },
+        {
+            "title" : "Architecture not for dummies",
+            "text" : "Google it, you lazy!"
+        }
+
+    ]
+}

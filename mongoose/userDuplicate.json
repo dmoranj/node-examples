@@ -1,0 +1,11 @@
+{
+    "login" : "tmosby",
+    "name" : "Barney",
+    "surname" : "Stinson",
+    "blogs" : [
+        {
+            "title" : "Legen...dary",
+            "text" : "Who cares about architecture?"
+        }
+    ]
+}
