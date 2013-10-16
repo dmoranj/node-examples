@@ -2,7 +2,7 @@ var request = require("request"),
     async = require("async");
 
 
-function waitForTaskCompletion(task) {
+function waitForTaskCompletion(task, callback) {
     var currentTask = task;
 
     function condition() {
@@ -24,11 +24,11 @@ function waitForTaskCompletion(task) {
     }
 
     function loopEnd(error, response, body) {
-        if (error) {
-            console.log("Error ending loop:" + error);
-        } else {
+        if (!error) {
             console.log("Task completed");
         }
+
+        callback(error, body);
     }
 
     async.whilst(
@@ -38,7 +38,7 @@ function waitForTaskCompletion(task) {
     );
 }
 
-function createTask() {
+function createTask(callback) {
     var options = {
             url: "http://localhost:4000/task",
             method: "POST",
@@ -46,8 +46,10 @@ function createTask() {
         };
 
     request(options, function (error, response, body) {
-        waitForTaskCompletion(body);
+        waitForTaskCompletion(body, callback);
     });
 }
 
-createTask()
+async.forever(createTask, function crashHandler(error) {
+    console.log("Exiting program due to error: " + error);
+});

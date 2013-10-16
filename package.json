@@ -10,7 +10,9 @@
     },
     "dependencies": {
         "async": "*",
-	"express": "*"
+	    "express": "*",
+        "request": "*",
+        "redis": "*"
     },
     "keywords": []
 }

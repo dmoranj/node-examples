@@ -19,7 +19,7 @@ function createTask(req, res) {
     setTimeout(function() {
         tasks[task.id].status = "completed";
         console.log("Task completed");
-    }, 30000);
+    }, 12000);
 }
 
 function pollTask(req, res) {
