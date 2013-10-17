@@ -45,6 +45,13 @@ function handleFinal(host, error) {
     }
 }
 
+/**
+ * This code perform the following tasks:
+ * - Makes an scp to download a file from a remote host.
+ * - Reads the downloaded file.
+ * - Makes some modificaciones (replacing some unwanted characters)
+ * - Write the results to a new file.
+ */
 function downloadCode(host) {
     console.log ("Downloading code from " + host);
 
@@ -53,6 +60,9 @@ function downloadCode(host) {
     exec(commandLine, handleDownload.bind(this, host));
 }
 
+/**
+ * This function read the host address file and executes the downloading code for the file.
+ */
 function readHostAddresses (addressFile, callback) {
     fs.readFile(addressFile, 'utf8', function (error, data) {
         if (error) {

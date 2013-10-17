@@ -11,9 +11,7 @@ function downloadData(host, callback) {
 
     var commandLine = "scp -i " + certAddress + " ec2-user@" + host + ":" + originFile + " ./async/" + host + ".out";
 
-    exec(commandLine, function (error) {
-        callback(error);
-    });
+    exec(commandLine, callback);
 }
 
 function processData(data, callback) {
@@ -27,11 +25,16 @@ function processData(data, callback) {
 function cleanData(host, callback) {
     var commandLine = "rm ./async/" + host + ".out";
 
-    exec(commandLine, function (error) {
-        callback(error);
-    });
+    exec(commandLine, callback);
 }
 
+/**
+ * This code perform the following tasks:
+ * - Makes an scp to download a file from a remote host.
+ * - Reads the downloaded file.
+ * - Makes some modificaciones (replacing some unwanted characters)
+ * - Write the results to a new file.
+ */
 function processFile(host, callback) {
     async.waterfall([
         apply(downloadData, host),
