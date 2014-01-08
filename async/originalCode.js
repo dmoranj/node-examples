@@ -8,15 +8,16 @@ var fs = require("fs"),
  * This code perform the following tasks:
  * - Makes an scp to download a file from a remote host.
  * - Reads the downloaded file.
- * - Makes some modificaciones (replacing some unwanted characters)
+ * - Makes some modifications (replacing some unwanted characters)
  * - Write the results to a new file.
+ * - Remove the downloaded files.
  */
 function downloadCode(host) {
     console.log ("Downloading code from " + host);
 
     var commandLine = "scp -i " + certAddress + " ec2-user@" + host + ":" + originFile + " ./" + path + host + ".out";
 
-    exec(commandLine, function (error) {
+    exec(commandLine, function handleDownload (error) {
         if (error) {
             console.error("Error downloading code from " + host + ": " + error);
         } else {

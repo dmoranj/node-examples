@@ -38,7 +38,7 @@ function cleanData(host, callback) {
 function processFile(host, callback) {
     async.waterfall([
         apply(downloadData, host),
-        apply(fs.readFile, path + host + ".out", "utf8"),
+        async.apply(fs.readFile, path + host + ".out", "utf8"),
         processData,
         apply(fs.writeFile, path + host + ".csv"),
         apply(cleanData, host)
